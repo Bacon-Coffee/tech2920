@@ -5,7 +5,7 @@
 ## 环境要求
 
 - macOS（已在 Apple Silicon 上验证）
-- Python 3.11+（当前使用 3.14）
+- Python 3.12（conda env `tech2390`，已验证 traci/sumolib/scipy/pyarrow 等依赖）
 - Eclipse SUMO 1.26.0（已通过官方 `.pkg` 安装到 `/Library/Frameworks/EclipseSUMO.framework`）
 
 ## 快速开始
@@ -19,11 +19,11 @@ echo $SUMO_HOME
 sumo --version
 ```
 
-2) **激活仓库内的 Python 虚拟环境**：
+2) **激活 conda 环境**（首次创建：`conda create -n tech2390 python=3.12 -y && pip install -r requirements.txt`）：
 
 ```bash
+conda activate tech2390
 cd /Users/xavier-macbookair/Desktop/textbook.Spring/tech2390/project
-source .venv/bin/activate
 ```
 
 3) **验证 Python TraCI 可用**：
@@ -42,7 +42,6 @@ project/
 ├── scripts/         # Python TraCI 控制脚本
 ├── outputs/         # 仿真产物（tripinfo、fcd、summary 等）— 已 gitignore
 ├── requirements.txt # Python 依赖
-├── .venv/           # 虚拟环境（已 gitignore）
 └── README.md
 ```
 
