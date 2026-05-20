@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# SUMO outputs (large simulation artifacts)
+outputs/*
+!outputs/.gitkeep
+*.xml.gz
+*.tripinfo.xml
+*.fcd-output.xml
+*.summary.xml
+
+# Editors
+.vscode/
+.idea/
