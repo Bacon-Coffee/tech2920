@@ -1,0 +1,18 @@
+<configuration>
+  <input>
+    <net-file value="grid4x4.net.xml"/>
+    <route-files value="routes_normal_200.rou.xml"/>
+  </input>
+  <time>
+    <begin value="0"/>
+    <end value="3600"/>
+  </time>
+  <processing>
+    <ignore-route-errors value="true"/>
+    <time-to-teleport value="300"/>
+  </processing>
+  <report>
+    <no-step-log value="true"/>
+    <verbose value="false"/>
+  </report>
+</configuration>

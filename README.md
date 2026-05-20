@@ -36,14 +36,22 @@ python -c "import traci, sumolib; print('traci', traci.__version__); print('sumo
 
 ```
 project/
-├── networks/        # 路网文件 .net.xml（netconvert/netedit 生成）
-├── routes/          # 车流定义 .rou.xml
-├── configs/         # 仿真配置 .sumocfg（指向 networks + routes）
-├── scripts/         # Python TraCI 控制脚本
-├── outputs/         # 仿真产物（tripinfo、fcd、summary 等）— 已 gitignore
+├── sim/             # SUMO 网络 .net.xml、车流 .rou.xml、配置 .sumocfg
+├── controllers/     # 5 种信号控制算法（共享 base class）
+├── runner/          # 实验编排：参数矩阵、并行调度、结果落盘
+├── analysis/        # scipy.stats 统计检验 + matplotlib 出图
+├── paper/           # IEEE 论文 .docx + 参考文献
+├── results/         # 仿真原始输出（不进 git，见 .gitignore）
 ├── requirements.txt # Python 依赖
 └── README.md
 ```
+
+当前 `sim/` 已包含：
+- `grid4x4.net.xml`（4×4 网格，12 个 actuated 信号灯，2 车道 / 200m / 13.89 m/s）
+- `routes_normal_{200,400,600,800,1000}.rou.xml`（5 档名义流量）
+- `grid4x4_normal_{200,400,600,800,1000}.sumocfg`（端到端配置，3600s 仿真）
+
+`*.trips.xml` 与 `*.rou.alt.xml` 是 randomTrips/duarouter 的中间产物，已 gitignore（可从 seed 重生）。
 
 ## 常用命令
 
